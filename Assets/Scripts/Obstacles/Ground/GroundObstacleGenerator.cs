@@ -14,10 +14,12 @@ public class GroundObstacleGenerator : MonoBehaviour
     [SerializeField] public Transform[] spawnPoints;
     [SerializeField] public int spawnIndex;
     public Queue<int> fourMoves;
+    [SerializeField] private float genInterval; 
     //Eachtime Initialization takes place, it depends on player's current location 
 
     private void Awake()
     {
+        genInterval = 3f; 
         stateList = new StateBase<GroundObstacleGenerator>[(int)STATE.Size];
         stateList[(int)STATE.Start] = new JumpState(this);
         stateList[(int)STATE.Jump] = new JumpState(this);
@@ -71,7 +73,7 @@ public class GroundObstacleGenerator : MonoBehaviour
         {
             //FourActions(); 
             GenerateObs();
-            yield return new WaitForSeconds(3.5f);
+            yield return new WaitForSeconds(genInterval);
         }
     }
 
@@ -181,7 +183,7 @@ namespace playerstate
         public override void Update(int spawnIndex, int actionVal)
         {
             int variation = Random.Range(0, 3);
-            if (owner.playerHeight <= 0.5)
+            if (owner.playerHeight <= 0)
                 variation = Random.Range(0, 2);
             switch (variation)
             {
@@ -221,12 +223,10 @@ namespace playerstate
         private void JumpFlat(int spawnIndex)
         {
             int nextVariation = Random.Range(0, 7);
-            if (owner.playerHeight != 0)
+            if (owner.playerHeight <= 1)
             {
                 nextVariation = Random.Range(3, 7);
             }
-            
-
             switch (nextVariation)
             {
                 case 0:
@@ -292,8 +292,12 @@ namespace playerstate
         public override void Update(int spawnIndex, int actionVal)
         {
             int nextVariation = Random.Range(0, 3);
-            if (owner.playerHeight <= 0.5)
+            if (owner.playerHeight <= 0)
                 nextVariation = Random.Range(0, 2);
+            if (spawnIndex <= 1)
+            {
+                nextVariation = 0;
+            }
             switch (nextVariation)
             {
                 case 0:

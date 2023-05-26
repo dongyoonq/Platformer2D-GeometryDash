@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8470665667425173744}
   - component: {fileID: 8470665667425173747}
+  - component: {fileID: 8305552159063900304}
   m_Layer: 7
   m_Name: Lava
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8470665667425173745}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.146, y: -0.1248, z: 0}
-  m_LocalScale: {x: 4.53, y: 0.21254732, z: 1}
+  m_LocalPosition: {x: 2.0245, y: -0.0155, z: 0}
+  m_LocalScale: {x: 5.0156093, y: 0.8683406, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8470665667715928720}
@@ -84,6 +85,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &8305552159063900304
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8470665667425173745}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &8470665667449269116
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +123,7 @@ GameObject:
   - component: {fileID: 8470665667449269118}
   - component: {fileID: 2223846153377577517}
   - component: {fileID: 588647614288888054}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Block (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +207,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -279,7 +306,7 @@ GameObject:
   - component: {fileID: 8470665667929762239}
   - component: {fileID: 7615835442335774308}
   - component: {fileID: 1516099488612121149}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Block (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +390,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -412,7 +439,7 @@ GameObject:
   - component: {fileID: 8470665668185438298}
   - component: {fileID: 4361442990800305085}
   - component: {fileID: 553982739264718202}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Block (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +523,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -545,7 +572,7 @@ GameObject:
   - component: {fileID: 8470665668323114874}
   - component: {fileID: 1504585332435674193}
   - component: {fileID: 5197387820546525329}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -629,7 +656,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -678,7 +705,7 @@ GameObject:
   - component: {fileID: 8470665668845398134}
   - component: {fileID: 3017917758388432056}
   - component: {fileID: 3205692310080212491}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Block (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -762,7 +789,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

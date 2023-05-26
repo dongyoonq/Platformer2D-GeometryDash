@@ -41,7 +41,6 @@ public class GameManager : MonoBehaviour
     private void InitGenerator()
     {
         GameObject poolObj = GameObject.FindGameObjectWithTag("Pool");
-        Debug.Log(poolObj.name);
         poolObj.transform.SetParent(transform);
         poolManager = poolObj.GetComponent<PoolManager>();
     }

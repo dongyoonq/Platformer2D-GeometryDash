@@ -8,7 +8,18 @@ public class DataManager : MonoBehaviour
     [Header("Pertaining to Obstacle")]
     [SerializeField] private float spawnInterval;
     [SerializeField] private float randomRange;
-    [SerializeField] private bool flightStatus; 
+    [SerializeField] private bool flightStatus;
+
+    [Header("Pertaining to Player")]
+    [SerializeField] private int numberofDeath;
+    [SerializeField] private int jump;
+
+    //Events 
+    public event UnityAction RocketStageTrigger;
+    public event UnityAction jumpTrigger;
+    public event UnityAction uponDeath; 
+    //for UI, Music, Score 
+
     public float SpawnInterval
     {
         get { return spawnInterval; }
@@ -30,6 +41,24 @@ public class DataManager : MonoBehaviour
             flightStatus = value;
         }
     }
+    public int NumberofDeath
+    {
+        get { return numberofDeath; }
+        set
+        {
+            numberofDeath = value;
+        }
+    }
+
+    public int Jump
+    {
+        get { return jump; }
+        set
+        {
+            jumpTrigger?.Invoke();
+            jump = value;
+        }
+    }
 
     private void Start()
     {
@@ -38,7 +67,7 @@ public class DataManager : MonoBehaviour
         RandomRange = 2; 
     }
 
-    public event UnityAction RocketStageTrigger; 
+
 
     public void IntoRocketResponse()
     {

@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8837700848771079755}
   - component: {fileID: 2123184564357353732}
+  - component: {fileID: 7454632405772111276}
   m_Layer: 0
   m_Name: Lava
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774978278530261684}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.506, y: -0.06, z: 0}
-  m_LocalScale: {x: 1.25, y: 0.0829, z: 1}
+  m_LocalPosition: {x: 2.0232, y: -0.4475, z: 0}
+  m_LocalScale: {x: 4.9044056, y: 0.85765123, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1833033953349089890}
@@ -84,6 +85,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &7454632405772111276
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774978278530261684}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &2741982552191529757
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +123,7 @@ GameObject:
   - component: {fileID: 3237345322330516464}
   - component: {fileID: 703652379205004580}
   - component: {fileID: 9140284294580441662}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +256,7 @@ GameObject:
   - component: {fileID: 5908706077568925571}
   - component: {fileID: 5644374039617871342}
   - component: {fileID: 9004309814964011060}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Block (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +390,7 @@ GameObject:
   - component: {fileID: 4256034229224694962}
   m_Layer: 7
   m_Name: Grey_Triangle
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -479,7 +506,7 @@ GameObject:
   - component: {fileID: 2174505395280143675}
   - component: {fileID: 3720369734766043256}
   - component: {fileID: 3299094029008185063}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Block (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -612,7 +639,7 @@ GameObject:
   - component: {fileID: 9219430954767120161}
   - component: {fileID: 8630839359343809483}
   - component: {fileID: 8576275096543534811}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Block (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -745,7 +772,7 @@ GameObject:
   - component: {fileID: 5287206945692259906}
   - component: {fileID: 8038358398361340615}
   - component: {fileID: 523738038552092492}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Block (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1170958989973058859}
   - component: {fileID: 5940070926647167747}
   - component: {fileID: 2784560611706137572}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Block (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 3540672678945326891}
   - component: {fileID: 351493101213447801}
   - component: {fileID: 7661123961588457264}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 8034493267024371853}
   - component: {fileID: 4209249846792342959}
   - component: {fileID: 1134206568011561855}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Block (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 7276717194755532767}
   m_Layer: 7
   m_Name: Grey_Triangle (2)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -494,7 +494,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -529,7 +529,7 @@ GameObject:
   - component: {fileID: 9110743217905746777}
   m_Layer: 7
   m_Name: Grey_Triangle (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -611,7 +611,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -697,7 +697,7 @@ GameObject:
   - component: {fileID: 2224272774828552628}
   - component: {fileID: 3492544269676239893}
   - component: {fileID: 239451541910395812}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Block (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -831,7 +831,7 @@ GameObject:
   - component: {fileID: 8725621292803849236}
   m_Layer: 7
   m_Name: Lava
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -844,8 +844,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6526766905394895361}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.506, y: -0.06, z: 0}
-  m_LocalScale: {x: 1.25, y: 0.06, z: 1}
+  m_LocalPosition: {x: 2.0078, y: -0.4918, z: 0}
+  m_LocalScale: {x: 4.8978825, y: 0.9236744, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2536785852382635173}
@@ -913,7 +913,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -941,7 +941,7 @@ GameObject:
   - component: {fileID: 2243803396764203535}
   - component: {fileID: 1604032392186928164}
   - component: {fileID: 8466305855722894338}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Block (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

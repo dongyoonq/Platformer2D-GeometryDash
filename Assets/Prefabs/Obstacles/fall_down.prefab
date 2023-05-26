@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1466043044293387739}
   - component: {fileID: 419383285615756446}
   - component: {fileID: 5764808030836851540}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 1466043044788766038}
   - component: {fileID: 6568800631371511929}
   - component: {fileID: 1195493935321537399}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Block (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 2231763459727879540}
   m_Layer: 7
   m_Name: Lava
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 1466043045641667284}
   - component: {fileID: 4154055369307937752}
   - component: {fileID: 1921582442313951738}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Block (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
