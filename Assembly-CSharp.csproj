@@ -8,9 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
-    <ProjectGuid>{D3C54BCC-A3B2-BDB7-CDD9-91410C12C707}</ProjectGuid>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{FDCF6563-FDD3-3040-9F01-28956240B652}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -57,24 +56,36 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Obstacles\Managers\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerGroundMake.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\Managers\DataManager.cs" />
+    <Compile Include="Assets\Scripts\Portal\PortalScript.cs" />
+    <Compile Include="Assets\Scripts\Scene\MainMenuSceneButton.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\Ground\Obstacle_Old.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\Ground\StateBase.cs" />
     <Compile Include="Assets\Scripts\Obstacles\GroundScroller.cs" />
     <Compile Include="Assets\Scripts\Scene\ReadySceneCameraScript.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMoveFix.cs" />
-    <Compile Include="Assets\Scripts\Obstacles\ObstacleGenerator.cs" />
-    <Compile Include="Assets\Scripts\Obstacles\Obstacle.cs" />
-    <Compile Include="Assets\Config\GameSetting.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerMove.cs" />
-    <Compile Include="Assets\Scripts\Obstacles\Managers\PoolManager.cs" />
     <Compile Include="Assets\Scripts\Scene\ButtonBox.cs" />
-    <Compile Include="Assets\Scripts\Obstacles\Managers\DataManager.cs" />
-    <Compile Include="Assets\Scripts\Obstacles\StateBase.cs" />
-    <Compile Include="Assets\Scripts\Scene\MainMenuSceneButton.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Scene\BackButton.cs" />
-    <Compile Include="Assets\Scripts\Portal\PortalScript.cs" />
-    <Compile Include="Assets\UI\Manager\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\Managers\PoolManager.cs" />
+    <Compile Include="Assets\Config\GameSetting.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\Ground\GroundObstacleGenerator.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerMove.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerGroundMake.cs" />
+    <Compile Include="Assets\Scripts\Player\newPlayerMoveFix.cs" />
+    <Compile Include="Assets\Scripts\Player\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Player\ldw\UIManager.cs" />
+    <Compile Include="Assets\Scripts\Player\ldw\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\Player\ldw\DeadMenu.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\ObstacleGeneratorController.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\Rocket\RocketObstacleGenerator.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\Rocket\RocketObstacle.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\Ground\Obstacle.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\GroundController.cs" />
     <Compile Include="Assets\Scripts\Scene\Button.cs" />
+    <Compile Include="Assets\UI\Manager\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\DeathEnding.cs" />
+    <Compile Include="Assets\Scripts\Scene\ReplayButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -373,6 +384,12 @@
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Common">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.24f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.24f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.24f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.24f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>

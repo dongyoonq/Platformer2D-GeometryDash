@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        InitGenerator();
+        // InitGenerator();
     }
     private void OnDestroy()
     {
