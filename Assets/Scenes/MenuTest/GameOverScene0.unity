@@ -210,7 +210,6 @@ GameObject:
   - component: {fileID: 58736431}
   - component: {fileID: 58736430}
   - component: {fileID: 58736429}
-  - component: {fileID: 58736428}
   m_Layer: 0
   m_Name: floorVisual
   m_TagString: Untagged
@@ -218,18 +217,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &58736428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 58736427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0214abc0178e8aa4bbaf16aa0677bd48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &58736429
 Rigidbody2D:
   serializedVersion: 4
@@ -1896,7 +1883,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: TestScene0
+          m_StringArgument: TestPlayerScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1194550721
@@ -2037,8 +2024,6 @@ GameObject:
   - component: {fileID: 1213140848}
   - component: {fileID: 1213140850}
   - component: {fileID: 1213140851}
-  - component: {fileID: 1213140852}
-  - component: {fileID: 1213140855}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2161,30 +2146,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.953326, y: 0.9609375}
   m_EdgeRadius: 0
---- !u!114 &1213140852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1213140847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0fdf44c31e189a49be87984dc2c137b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1213140855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1213140847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae29562704535314b93bfc1a4ae00450, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1238546541
 GameObject:
   m_ObjectHideFlags: 0

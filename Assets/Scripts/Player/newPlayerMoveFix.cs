@@ -102,6 +102,7 @@ public class newPlayerMoveFix : MonoBehaviour
         Instantiate(dieParticle, transform.position, Quaternion.identity);
         this.gameObject.SetActive(false);
         // Destroy(this.gameObject);
+        playerSfx.Stop();
         SceneManager.LoadScene("GameOverScene0");
     }
 
