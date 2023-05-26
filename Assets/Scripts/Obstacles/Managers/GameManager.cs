@@ -26,12 +26,12 @@ public class GameManager : MonoBehaviour
         instance = this;
         gameObject.transform.position = new Vector2(0, 0); 
         DontDestroyOnLoad(this);
-        //InitManagers();
+        InitManagers();
     }
 
     private void Start()
     {
-        // InitGenerator();
+        InitGenerator();
     }
     private void OnDestroy()
     {

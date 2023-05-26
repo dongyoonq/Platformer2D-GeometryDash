@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -117,8 +118,11 @@ public class newPlayerMoveFix : MonoBehaviour
                 currentGamemode = Gamemode;
                 if (currentGamemode == Gamemodes.Cube)
                     player.gravityScale = 6f;
-                if(currentGamemode == Gamemodes.Ship)
+                    GameManager.Data.FlightStatus = false;
+
+                if (currentGamemode == Gamemodes.Ship)
                     player.AddForce(Vector2.up * jumpForce * gravity, ForceMode2D.Impulse);
+                    GameManager.Data.FlightStatus = true;
                 break;
             case 2:
                 gravity = Gravity;
