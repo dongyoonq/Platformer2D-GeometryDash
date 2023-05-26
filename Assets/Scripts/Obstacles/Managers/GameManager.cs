@@ -8,9 +8,11 @@ public class GameManager : MonoBehaviour
 
     private static GameManager instance;
     private static PoolManager poolManager;
+    private static DataManager dataManager;
 
     public static GameManager Instance { get { return instance; } }
     public static PoolManager Pool { get { return poolManager; } }
+    public static DataManager Data {  get { return dataManager; } }
 
     private void Awake()
     {
@@ -27,16 +29,28 @@ public class GameManager : MonoBehaviour
         //InitManagers();
     }
 
+    private void Start()
+    {
+        InitGenerator();
+    }
     private void OnDestroy()
     {
         if (instance == this)
             instance = null;
     }
 
+    private void InitGenerator()
+    {
+        GameObject poolObj = GameObject.FindGameObjectWithTag("Pool");
+        Debug.Log(poolObj.name);
+        poolObj.transform.SetParent(transform);
+        poolManager = poolObj.GetComponent<PoolManager>();
+    }
+
     private void InitManagers()
     {
-        GameObject poolObj = GameObject.FindGameObjectWithTag("PoolManager");
-        poolObj.transform.SetParent(transform); 
-        poolManager = poolObj.GetComponent<PoolManager>();
+        GameObject dataObj = new GameObject() { name = "Data Manager" };
+        dataObj.transform.SetParent(transform);
+        dataManager = dataObj.AddComponent<DataManager>();
     }
 }

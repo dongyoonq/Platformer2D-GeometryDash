@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour
+public class Obstacle_Old : MonoBehaviour
 {
     private float speed = 2.5f; // Speed at which the object moves
-    public Transform endpoint;
+    private Transform endPoint; 
     public enum State
     {
         Idle, Launch
@@ -15,21 +15,20 @@ public class Obstacle : MonoBehaviour
 
     private void Start()
     {
-        endpoint = GetComponent<Transform>();
         curState = State.Idle;
         //이벤트 구문 추가 
-        GameManager.Pool.Trigger += SwitchState;
+
     }
     private void Update()
     {
         if (curState == State.Idle)
             return;
-        LaunchState(); 
+        LaunchState();
     }
 
     private void SwitchState()
     {
-        Debug.Log("Move!"); 
+        Debug.Log("Move!");
         curState = State.Launch;
     }
 
@@ -44,7 +43,7 @@ public class Obstacle : MonoBehaviour
         transform.Translate(Vector2.left * speed * Time.deltaTime);
 
         // Check if the object reaches the endpoint
-        if (transform.position.x <= endpoint.position.x)
+        if (transform.position.x <= endPoint.position.x)
         {
             GameManager.Pool.ReturnBlockToPool(gameObject);
         }
