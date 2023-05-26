@@ -15,9 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuTest/ReadyScene.unity
     guid: 2c9e6715bb782c74c9045f8edd828943
   - enabled: 1
-    path: Assets/Scenes/MenuTest/GameOverScene.unity
+    path: Assets/Scenes/MenuTest/GameOverScene0.unity
     guid: f29cd002faae4a2408ab55c9ff955c4a
   - enabled: 1
-    path: Assets/Scenes/MenuTest/TestScene.unity
+    path: Assets/Scenes/MenuTest/TestScene0.unity
     guid: ca1e5a3cd8fa1fe4186f88feac2d55c6
   m_configObjects: {}

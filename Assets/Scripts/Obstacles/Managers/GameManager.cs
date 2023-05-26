@@ -24,8 +24,9 @@ public class GameManager : MonoBehaviour
         }
 
         instance = this;
-        InitManagers(); 
+        gameObject.transform.position = new Vector2(0, 0); 
         DontDestroyOnLoad(this);
+        //InitManagers();
     }
 
     private void Start()
