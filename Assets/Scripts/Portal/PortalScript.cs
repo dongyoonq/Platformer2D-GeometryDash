@@ -13,7 +13,7 @@ public class PortalScript : MonoBehaviour
     {
         try
         {
-            PlayerMoveFix move = collision.gameObject.GetComponent<PlayerMoveFix>();
+            newPlayerMoveFix move = collision.gameObject.GetComponent<newPlayerMoveFix>();
 
             move.ThroughPortal(gamemode, speed, gravity ? 1 : -1, State);
         }
