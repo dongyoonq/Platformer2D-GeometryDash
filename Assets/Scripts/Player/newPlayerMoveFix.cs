@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public enum Speed { Slow = 0, Normal = 1, Fast = 2, Faster = 3, Fastest = 4 }
 public enum Gamemodes { Cube = 0, Ship = 1 }
@@ -14,6 +15,9 @@ public class newPlayerMoveFix : MonoBehaviour
     public LayerMask GroundMask;
     public Transform Sprite;
     public ParticleSystem dieParticle;
+    
+    public AudioSource playerSfx;
+    public AudioClip jumpSfx;
 
     public Speed currentSpeed;
     public Gamemodes currentGamemode;
@@ -32,6 +36,8 @@ public class newPlayerMoveFix : MonoBehaviour
         Move();
 
         Invoke(currentGamemode.ToString(), 0);
+
+        
     }
 
     private void Cube()
@@ -46,11 +52,12 @@ public class newPlayerMoveFix : MonoBehaviour
             {
                 player.velocity = Vector2.zero;
                 player.AddForce(Vector2.up * jumpForce * gravity, ForceMode2D.Impulse);
+                JumpSound();
             }
         }
         else
         {
-            Sprite.Rotate(Vector3.back, 400f * Time.deltaTime);
+            Sprite.Rotate(Vector3.back, 500f * Time.deltaTime);
         }
     }
 
@@ -92,10 +99,10 @@ public class newPlayerMoveFix : MonoBehaviour
 
     private void Dead()
     {
+        Instantiate(dieParticle, transform.position, Quaternion.identity);
         this.gameObject.SetActive(false);
         // Destroy(this.gameObject);
-        // Instantiate(dieParticle, transform.position, Quaternion.identity);
-        
+        SceneManager.LoadScene("GameOverScene0");
     }
 
     public void ThroughPortal(Gamemodes Gamemode, Speed Speed, int Gravity, int State)
@@ -117,5 +124,10 @@ public class newPlayerMoveFix : MonoBehaviour
                 player.gravityScale = Mathf.Abs(player.gravityScale) * Gravity;
                 break;
         }
+    }
+
+    public void JumpSound()
+    {
+        playerSfx.PlayOneShot(jumpSfx);
     }
 }
