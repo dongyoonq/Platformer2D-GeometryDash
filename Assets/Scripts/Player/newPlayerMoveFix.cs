@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// public enum Speed { Slow = 0, Normal = 1, Fast = 2, Faster = 3, Fastest = 4 }
-// public enum Gamemodes { Cube = 0, Ship = 1 }
+public enum Speed { Slow = 0, Normal = 1, Fast = 2, Faster = 3, Fastest = 4 }
+public enum Gamemodes { Cube = 0, Ship = 1 }
 
-public class PlayerMoveFix : MonoBehaviour
+public class newPlayerMoveFix : MonoBehaviour
 {
     public float jumpForce = 27f;        // Á¡ÇÁÇÏ´Â Èû
     private Rigidbody2D player;
@@ -13,6 +13,7 @@ public class PlayerMoveFix : MonoBehaviour
     public float GroundCheckRadius;
     public LayerMask GroundMask;
     public Transform Sprite;
+    public ParticleSystem dieParticle;
 
     public Speed currentSpeed;
     public Gamemodes currentGamemode;
@@ -22,7 +23,7 @@ public class PlayerMoveFix : MonoBehaviour
     private void Start()
     {
         player = GetComponent<Rigidbody2D>();
-        player.gravityScale = 12f;
+        player.gravityScale = 6f;
     }
 
     private void Update()
@@ -81,6 +82,22 @@ public class PlayerMoveFix : MonoBehaviour
             Vector2.right * 1.1f + Vector2.up * GroundCheckRadius, 0, GroundMask);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Dead();
+        }
+    }
+
+    private void Dead()
+    {
+        this.gameObject.SetActive(false);
+        // Destroy(this.gameObject);
+        // Instantiate(dieParticle, transform.position, Quaternion.identity);
+        
+    }
+
     public void ThroughPortal(Gamemodes Gamemode, Speed Speed, int Gravity, int State)
     {
         switch (State)
@@ -91,7 +108,7 @@ public class PlayerMoveFix : MonoBehaviour
             case 1:
                 currentGamemode = Gamemode;
                 if (currentGamemode == Gamemodes.Cube)
-                    player.gravityScale = 12f;
+                    player.gravityScale = 6f;
                 if(currentGamemode == Gamemodes.Ship)
                     player.AddForce(Vector2.up * jumpForce * gravity, ForceMode2D.Impulse);
                 break;
