@@ -3,20 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleGenerator : MonoBehaviour
+public class GroundObstacleGenerator : MonoBehaviour
 {
-
-    // Where actions are subdivided into first 2 categories, 
-    // Jump : is with Obstacles함정이있는: Triangle 삼각형의
-    // No_Jump: is without Obstacle함정이있는: Triangle 삼각형의 
-
-    // Each is subcategorized into 3 seperate kinds, 또한 3가지로 소분류가 가능한데, 
-    // Jump_Up, : Where y-axis increased 플레이어의 y값이 상승
-    // Jump_flat: y-axis unchanged 유지 
-    // Jump_down: y_axis decrease  떡락하는상황이다. 
     [Header("Player Info")]
     public int playerHeight;
-    public StateBase<ObstacleGenerator>[] stateList;
+    public StateBase<GroundObstacleGenerator>[] stateList;
     public STATE curState;
 
     [Header("Gen Properties")]
@@ -27,7 +18,7 @@ public class ObstacleGenerator : MonoBehaviour
 
     private void Awake()
     {
-        stateList = new StateBase<ObstacleGenerator>[(int)STATE.Size];
+        stateList = new StateBase<GroundObstacleGenerator>[(int)STATE.Size];
         stateList[(int)STATE.Start] = new JumpState(this);
         stateList[(int)STATE.Jump] = new JumpState(this);
         stateList[(int)STATE.NoJump] = new NoJumpState(this);
@@ -41,7 +32,7 @@ public class ObstacleGenerator : MonoBehaviour
         spawnIndex = 0;
         curState = STATE.Start;
         FourActions();
-        mapGenerate = StartCoroutine(mapGen()); 
+        mapGenerate = StartCoroutine(mapGen());
     }
 
     private void Update()
@@ -54,8 +45,8 @@ public class ObstacleGenerator : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             spawnIndex = i;
-            int nextstate = fourMoves.Dequeue(); 
-            switch(nextstate)
+            int nextstate = fourMoves.Dequeue();
+            switch (nextstate)
             {
                 case 0:
                     curState = STATE.Jump;
@@ -73,14 +64,14 @@ public class ObstacleGenerator : MonoBehaviour
         }
     }
 
-    private Coroutine mapGenerate; 
+    private Coroutine mapGenerate;
     IEnumerator mapGen()
     {
         while (true)
         {
             //FourActions(); 
             GenerateObs();
-            yield return new WaitForSeconds(5);  
+            yield return new WaitForSeconds(3.5f);
         }
     }
 
@@ -92,7 +83,7 @@ public class ObstacleGenerator : MonoBehaviour
             int randomval = Random.Range(0, 2);
             four.Enqueue(randomval);
         }
-        foreach(int i in four)
+        foreach (int i in four)
         {
             Debug.Log(four.Count);
         }
@@ -135,9 +126,9 @@ namespace playerstate
     {
         Start, Jump, NoJump, Size
     }
-    public class StartState : StateBase<ObstacleGenerator>
+    public class StartState : StateBase<GroundObstacleGenerator>
     {
-        public StartState(ObstacleGenerator owner) : base(owner)
+        public StartState(GroundObstacleGenerator owner) : base(owner)
         {
         }
 
@@ -153,7 +144,7 @@ namespace playerstate
         public override void SetUp()
         {
             throw new System.NotImplementedException();
-            
+
         }
 
         public override void Update(int spawnIndex, int actionVal)
@@ -161,10 +152,10 @@ namespace playerstate
             GameManager.Pool.SetforRelease("empty(Clone)", owner.spawnPoints[spawnIndex]);
         }
     }
-    public class JumpState : StateBase<ObstacleGenerator>
+    public class JumpState : StateBase<GroundObstacleGenerator>
     {
-        private string blockType; 
-        public JumpState(ObstacleGenerator owner) : base(owner)
+        private string blockType;
+        public JumpState(GroundObstacleGenerator owner) : base(owner)
         {
         }
 
@@ -191,7 +182,7 @@ namespace playerstate
         {
             int variation = Random.Range(0, 3);
             if (owner.playerHeight <= 0.5)
-                variation = Random.Range(0, 2); 
+                variation = Random.Range(0, 2);
             switch (variation)
             {
                 case 0:
@@ -202,7 +193,7 @@ namespace playerstate
                     break;
                 case 2:
                     JumpDown(spawnIndex);
-                    break; 
+                    break;
             }
             //Exit(); 
         }
@@ -215,11 +206,11 @@ namespace playerstate
             {
                 case 0:
                     blockType = _JumpUp.jump_up_1.ToString();
-                    owner.playerHeight += 2; 
+                    owner.playerHeight += 1;
                     break;
                 case 1:
                     blockType = _JumpUp.jump_up_2.ToString();
-                    owner.playerHeight += 2;
+                    owner.playerHeight += 1;
                     break;
             }
             owner.spawnPoints[spawnIndex].position = new Vector2(owner.spawnPoints[spawnIndex].position.x,
@@ -230,6 +221,11 @@ namespace playerstate
         private void JumpFlat(int spawnIndex)
         {
             int nextVariation = Random.Range(0, 7);
+            if (owner.playerHeight != 0)
+            {
+                nextVariation = Random.Range(3, 7);
+            }
+            
 
             switch (nextVariation)
             {
@@ -261,16 +257,16 @@ namespace playerstate
         private void JumpDown(int spawnIndex)
         {
             blockType = _JumpDown.jump_down.ToString();
-            owner.playerHeight -= 2;
+            owner.playerHeight -= 1;
             GameManager.Pool.SetforRelease(blockType, owner.spawnPoints[spawnIndex]);
         }
     }
 
-    public class NoJumpState : StateBase<ObstacleGenerator>
+    public class NoJumpState : StateBase<GroundObstacleGenerator>
     {
         private string blockname;
-        private NoJump value; 
-        public NoJumpState(ObstacleGenerator owner) : base(owner)
+        private NoJump value;
+        public NoJumpState(GroundObstacleGenerator owner) : base(owner)
         {
         }
 
@@ -284,7 +280,7 @@ namespace playerstate
             if (owner.spawnIndex < 3)
                 return;
             owner.spawnIndex = 0;
-            owner.FourActions(); 
+            owner.FourActions();
             GameManager.Pool.TriggerRelease();
         }
 
@@ -297,7 +293,7 @@ namespace playerstate
         {
             int nextVariation = Random.Range(0, 3);
             if (owner.playerHeight <= 0.5)
-                nextVariation = Random.Range(0, 2); 
+                nextVariation = Random.Range(0, 2);
             switch (nextVariation)
             {
                 case 0:
@@ -308,17 +304,13 @@ namespace playerstate
                     break;
                 case 2:
                     value = NoJump.fall_down;
-                    owner.playerHeight -= 2; 
+                    owner.playerHeight -= 1;
                     break;
             }
             owner.spawnPoints[spawnIndex].position = new Vector2(owner.spawnPoints[spawnIndex].position.x,
                 owner.playerHeight);
             blockname = value.ToString();
             GameManager.Pool.SetforRelease(blockname, owner.spawnPoints[spawnIndex]);
-            // if height has reached limit: Top 
-
-            // if height has reached limit: Bottom
-            //Exit();
         }
     }
 }

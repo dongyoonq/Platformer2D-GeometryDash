@@ -8,9 +8,6 @@ using UnityEngine.Pool;
 public class PoolManager : MonoBehaviour
 {
     public GameObject[] blockPrefabs; // 총알 처럼 쓰일 오브젝트 풀링 대상 
-
-    // Dictionaries to store active and inactive game objects based on their types
-    public Dictionary<string, Queue<GameObject>> activeGameObjects = new Dictionary<string, Queue<GameObject>>(); // 활성화 중인 블럭 
     public Dictionary<string, Queue<GameObject>> inactiveGameObjects = new Dictionary<string, Queue<GameObject>>(); // 비활성화 된 블럭 
 
     public event UnityAction Trigger;
@@ -20,9 +17,9 @@ public class PoolManager : MonoBehaviour
         foreach (GameObject prefab in blockPrefabs)
         {
             string blockType = prefab.name;
-            Debug.Log(prefab.name.ToString()); 
+            Debug.Log(prefab.name.ToString());
             Queue<GameObject> queue = new Queue<GameObject>();
-            inactiveGameObjects.Add(prefab.name, queue); 
+            inactiveGameObjects.Add(prefab.name, queue);
 
             for (int i = 0; i < 2; i++) // 혹여나 중복호출되어 부족한걸 방지하기위해 2개씩 준비한다. 
             {
@@ -53,10 +50,8 @@ public class PoolManager : MonoBehaviour
     public void ReturnBlockToPool(GameObject block)
     {
         string blockType = block.name;
-        TransfertoActive(block); 
         // Deactivate the block and return it to the pool
         block.SetActive(false);
-        activeGameObjects[blockType].Dequeue();
         inactiveGameObjects[blockType].Enqueue(block);
     }
 
@@ -66,16 +61,6 @@ public class PoolManager : MonoBehaviour
         newBlock.name = prefab.name;
         return newBlock;
     }
-
-    private void TransfertoActive(GameObject block)
-    {
-        if (!activeGameObjects.ContainsKey(block.name))
-        {
-            Queue<GameObject> blockQueue = new Queue<GameObject>();
-            activeGameObjects.Add(block.name, blockQueue);
-        }
-    }
-
     private GameObject GetPrefabByBlockType(string blockType)
     {
         foreach (GameObject prefab in blockPrefabs)
@@ -96,8 +81,6 @@ public class PoolManager : MonoBehaviour
         StockCheck(blockType);
 
         releasable.SetActive(true);
-        TransfertoActive(releasable);
-        activeGameObjects[blockType].Enqueue(releasable);
     }
 
     public void SetforRelease(string blockType, Transform releasePoint)
@@ -106,8 +89,6 @@ public class PoolManager : MonoBehaviour
         StockCheck(blockType);
         GameObject releasable = inactiveGameObjects[blockType].Dequeue();
         releasable.transform.position = releasePoint.position;
-        TransfertoActive(releasable);
-        activeGameObjects[blockType].Enqueue(releasable);
         releasable.SetActive(true);
 
     }
